@@ -8,6 +8,9 @@ import * as path from "path";
 import { loadProfile, getGoogleAuth } from "../lib/profiles.js";
 import { listR2Receipts, downloadFromR2, deleteFromR2 } from "../R2.js";
 import * as os from "os";
+import { optionalEnv } from "../lib/env.js";
+
+const haikuModel = optionalEnv("HAIKU_MODEL", "claude-haiku-4-5-20251001");
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -194,7 +197,7 @@ Rules:
       } as const);
 
   const response = await anthropic.messages.create({
-    model:      "claude-haiku-4-5-20251001",
+    model:      haikuModel,
     max_tokens: 256,
     system:     systemPrompt,
     messages: [
@@ -395,7 +398,7 @@ Available expense types: ${settings.expenseTypes.join(", ")}
 Return ONLY the corrected JSON with the same shape. If the note doesn't correct a field, keep the original value.`;
 
   const response = await anthropic.messages.create({
-    model:      "claude-haiku-4-5-20251001",
+    model:      haikuModel,
     max_tokens: 256,
     messages:   [{ role: "user", content: prompt }],
   });
