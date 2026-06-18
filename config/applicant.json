@@ -1,0 +1,37 @@
+{
+  "name": "Sean Fleming",
+  "email": "seanafleming2003@gmail.com",
+  "phone": "213-880-2289",
+  "links": {
+    "github": "https://github.com/swan-e",
+    "linkedin": "https://linkedin.com/in/seanfleming09",
+    "portfolio": "https://seanfleming.dev"
+  },
+  "education": {
+    "school": "Virginia Polytechnic Institute",
+    "degree": "Bachelor of Science, Computer Science",
+    "location": "Blacksburg, VA",
+    "grad": "May 2026",
+    "gpa": ""
+  },
+  "resumeLocations": {
+    "Northern Virginia": "Sterling, VA",
+    "default": "Torrance, CA"
+  },
+  "workAuth": {
+    "authorizedUS": true,
+    "requiresSponsorship": false
+  },
+  "eeo": {
+    "gender": "Male",
+    "race": "Two or more races",
+    "veteran": "No",
+    "disability": "No"
+  },
+  "preferences": {
+    "targetLocations": ["Los Angeles", "New York City", "Northern Virginia", "Chicago", "San Francisco", "Remote-US"],
+    "earliestStart": "",
+    "willingToRelocate": true
+  },
+  "salaryPolicy": "Open / market rate"
+}
