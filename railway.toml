@@ -1,8 +1,0 @@
-[build]
-dockerfile = "Dockerfile.upload"
-
-[deploy]
-startCommand = "node build/upload-server.js"
-healthcheckPath = "/health"
-healthcheckTimeout = 30
-restartPolicyType = "always"
