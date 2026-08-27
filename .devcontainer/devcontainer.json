@@ -1,0 +1,28 @@
+{
+	"name": "Polaris MCP Dev",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": false,
+			"configureZshAsDefaultShell": false
+		}, 
+		"ghcr.io/devcontainers/features/node:1": {},
+		"ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				
+			]
+		}
+	},
+	"remoteUser": "root",
+	"mounts": [
+		"source=${localEnv:HOME}/.claude,target=/root/.claude,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.claude.json,target=/root/.claude.json,type=bind,consistency=cached"
+	],
+	"postCreateCommand": "echo 'source /etc/profile.d/bash_completion.sh' >> ~/.bashrc"
+}
