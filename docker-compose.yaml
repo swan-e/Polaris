@@ -1,0 +1,38 @@
+name: polaris
+
+services:
+  mcp:
+    build:
+      context: .
+      dockerfile: services/mcp/Dockerfile
+    image: polaris-mcp
+    container_name: polaris-mcp
+    restart: unless-stopped
+    env_file: [.env]
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"   # exposed so Claude Code on the host can reach it; drop if only other containers call it
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks: [polaris]
+
+  # Downstream services talk to MCP over HTTP at http://mcp:3000/mcp on this network.
+  # scheduler:
+  #   build:
+  #     context: .
+  #     dockerfile: services/scheduler/Dockerfile
+  #   env_file: [.env]
+  #   environment:
+  #     - MCP_URL=http://mcp:3000/mcp
+  #   depends_on:
+  #     mcp: { condition: service_healthy }
+  #   networks: [polaris]
+
+networks:
+  polaris:
+    driver: bridge

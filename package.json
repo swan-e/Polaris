@@ -1,0 +1,35 @@
+{
+  "name": "polaris",
+  "version": "1.0.0",
+  "description": "Previously NOVA, now reborn as Polaris. Polaris is the northern star guiding you on your path towards becoming a better you.",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "services/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "dev": "npm run dev --workspace @polaris/mcp",
+    "compose:up": "docker compose up -d --build",
+    "compose:down": "docker compose down",
+    "compose:logs": "docker compose logs -f",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swan-e/NOVA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swan-e/NOVA/issues"
+  },
+  "homepage": "https://github.com/swan-e/NOVA#readme",
+  "devDependencies": {
+    "@types/node": "^26.3.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  }
+}
