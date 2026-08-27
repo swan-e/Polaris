@@ -1,0 +1,12 @@
+# Railway builds one service from this file. Build context is the repo root;
+# dockerfilePath is relative to it — matches docker-compose.yml.
+[build]
+builder = "dockerfile"
+dockerfilePath = "services/mcp/Dockerfile"
+
+[deploy]
+startCommand = "node dist/http.js"
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "always"
+numReplicas = 1

@@ -1,0 +1,33 @@
+{
+  "name": "@polaris/mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/http.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/http.ts",
+    "dev:stdio": "tsx src/stdio.ts",
+    "start": "node dist/http.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.4.3",
+    "@anthropic-ai/sdk": "^0.104.1",
+    "@aws-sdk/client-s3": "^3.1065.0",
+    "@googleapis/calendar": "^14.2.0",
+    "@googleapis/drive": "^20.2.0",
+    "@googleapis/gmail": "^16.1.1",
+    "@googleapis/sheets": "^13.0.2",
+    "@notionhq/client": "^2.2.15",
+    "google-auth-library": "^10.7.0",
+    "googleapis-common": "^8.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1",
+    "multer": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.1.0"
+  }
+}
